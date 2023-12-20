@@ -9,4 +9,6 @@ add_executable(2023_encrypt_project
         main.cpp
         src/cipher_xor.cpp
         src/cipher_shift.cpp
-        src/cipher_chacha20.cpp)
+        src/cipher_chacha20.cpp
+        src/cipher_vigenere.cpp
+        src/cipher_base64.cpp)

@@ -11,9 +11,11 @@
 #include <fstream>
 #include <vector>
 
+#include "cipher_base64.h"
 #include "cipher_chacha20.h"
 #include "cipher_shift.h"
 #include "cipher_xor.h"
+#include "cipher_vigenere.h"
 
 using namespace std;
 
@@ -74,6 +76,8 @@ vector<shared_ptr<cipher>> init() {
     vector<shared_ptr<cipher>> ciphers;
     vector<byte> xor_key { 0x65 };
 
+    ciphers.push_back(make_shared<cipher_vigenere>(convert("4t4389eyuisdh87yuiao899&AIUSYGDASD")));
+    ciphers.push_back(make_shared<cipher_chacha20>(convert<32>("01234567890123456789012345678901"), convert<8>("01234567")));
     ciphers.push_back(make_shared<cipher_xor>(convert("hello world!")));
     ciphers.push_back(make_shared<cipher_xor>(convert("my name is chacha")));
     ciphers.push_back(make_shared<cipher_xor>(convert("한국어로 진행할 수 있습니다.")));
@@ -86,6 +90,8 @@ vector<shared_ptr<cipher>> init() {
     ciphers.push_back(make_shared<cipher_shift>(64));
     ciphers.push_back(make_shared<cipher_xor>(convert("nice to meet you.")));
     ciphers.push_back(make_shared<cipher_chacha20>(convert<32>("01234567890123456789012345678901"), convert<8>("01234567")));
+    ciphers.push_back(make_shared<cipher_vigenere>(convert("4t4389eyuisdh87yuiao899&AIUSYGDASD")));
+    ciphers.push_back(make_shared<cipher_base64>());
 
     return ciphers;
 }
