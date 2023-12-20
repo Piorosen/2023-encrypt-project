@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
         std::cout << (char)data;
     }
     std::cout << "\n";
-    
+
     for (int i = 0; i < ciphers.size(); i++) {
         input = ciphers[i]->encypt(input);
         // save(input, history_path + to_string(i) + "_enc_" + ciphers[i]->get_name() + ".txt");

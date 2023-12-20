@@ -74,7 +74,6 @@ inline std::array<byte, size> convert(const string& key) {
 vector<shared_ptr<cipher>> init() {
     // init code
     vector<shared_ptr<cipher>> ciphers;
-    vector<byte> xor_key { 0x65 };
 
     ciphers.push_back(make_shared<cipher_vigenere>(convert("4t4389eyuisdh87yuiao899&AIUSYGDASD")));
     ciphers.push_back(make_shared<cipher_chacha20>(convert<32>("01234567890123456789012345678901"), convert<8>("01234567")));
@@ -92,7 +91,6 @@ vector<shared_ptr<cipher>> init() {
     ciphers.push_back(make_shared<cipher_chacha20>(convert<32>("01234567890123456789012345678901"), convert<8>("01234567")));
     ciphers.push_back(make_shared<cipher_vigenere>(convert("4t4389eyuisdh87yuiao899&AIUSYGDASD")));
     ciphers.push_back(make_shared<cipher_base64>());
-
     return ciphers;
 }
 
